@@ -14,13 +14,15 @@ function Profile() {
         let arr = res.data.data.tasks
         setList(arr)
     }
-
-    useEffect(() => { getData() })
+    const [list, setList] = useState([""]);
+    const [task, setTask] = useState("");
+    
+    useEffect(() => { getData() },[list])
 
 
     
-    const [list, setList] = useState([""]);
-    const [task, setTask] = useState("");
+    
+    
     
 
     const submitHandler = async() =>{
