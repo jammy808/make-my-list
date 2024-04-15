@@ -34,7 +34,7 @@ function Profile() {
     const submitHandler = async() =>{
 
       console.log(list);
-        setList([...list, task]);
+        //setList([...list, task]);
         console.log(list);
 
         const res = await axios.post("/api/users/add", {task})
@@ -53,7 +53,7 @@ function Profile() {
         let kopi = [...list];
         
         kopi.splice(i,1);
-        setList(kopi);
+        //setList(kopi);
         let id = i
         const res = await axios.post("/api/users/delete", {id})
         let arr = res.data.data.tasks
