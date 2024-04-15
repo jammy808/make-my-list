@@ -13,6 +13,7 @@ export async function GET(request : NextRequest){
     const userId = '661d4bfaa0dfc3ebf972bb4b'
      
     const user = await User.findOne({_id: userId}).select("-password")
+    console.log("profile route hit")
 
     return NextResponse.json({
         message: "User found",

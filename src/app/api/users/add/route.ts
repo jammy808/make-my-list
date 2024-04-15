@@ -6,9 +6,11 @@ import bcryptjs from 'bcryptjs'
 import jwt from 'jsonwebtoken'
 import { getDataFromToken } from '@/helpers/getDatafromToken'
 
-connect()
+
 
 export async function POST(request : NextRequest){
+
+    connect()
 
     const reqBody = await request.json()
         const {task} = reqBody
@@ -17,6 +19,7 @@ export async function POST(request : NextRequest){
     const userId = await getDataFromToken(request)
      
     const user = await User.findOne({_id: userId.id})
+    
     user.tasks.push(task)
     await user.save()
  

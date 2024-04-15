@@ -16,7 +16,7 @@ function Profile() {
         id = res.data.data._id
         let arr = res.data.data.tasks
         console.log(arr)
-        await setList(arr)
+        setList(arr)
         console.log(list);
     }
     
@@ -37,7 +37,12 @@ function Profile() {
         setList([...list, task]);
         console.log(list);
 
-        const response = await axios.post("/api/users/add", {task})
+        const res = await axios.post("/api/users/add", {task})
+        let arr = res.data.data.tasks
+        console.log("added")
+        console.log(arr)
+        setList(arr)
+        console.log(list);
             
         
         setTask("");
@@ -50,7 +55,12 @@ function Profile() {
         kopi.splice(i,1);
         setList(kopi);
         let id = i
-        const response = await axios.post("/api/users/delete", {id})
+        const res = await axios.post("/api/users/delete", {id})
+        let arr = res.data.data.tasks
+        console.log("deleted")
+        console.log(arr)
+        setList(arr)
+        console.log(list);
       }
     
       let todos = list.map((e,i)=>{
