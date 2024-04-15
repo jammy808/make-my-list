@@ -109,6 +109,10 @@ function Profile() {
     
 
     </form>
+    <div> <button 
+    className="bg-yellow-400  px-2 rounded-2xl border-0 border-b-4 border-r-1 border-solid border-yellow-600 
+    font-bold italic text-yellow-700 shadow-xl m-6 ml-auto justify-self-end w-32 transform transition-all hover:translate-y-1  " 
+    onClick={getData}> get </button></div>
     <div > {todos}</div>
     
    </>
