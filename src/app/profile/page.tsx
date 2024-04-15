@@ -63,7 +63,7 @@ function Profile() {
 // -----------------------------------------------------------------------------------------------------------------------------------------------
        
     return(
-        <div className="">
+        <>
     <div className="bg-yellow-300 flex justify-center items-center  h-24 m-6 rounded-md 
     font-bold text-5xl italic text-yellow-700 shadow-lg">My List</div>
     
@@ -93,7 +93,7 @@ function Profile() {
     </form>
     <div > {todos}</div>
     
-   </div>
+   </>
     )
 }
 
