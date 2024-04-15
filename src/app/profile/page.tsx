@@ -6,6 +6,9 @@ function Profile() {
 
     let id = 1
 
+    const [list, setList] = useState([""]);
+    const [task, setTask] = useState("");
+
     const getData = async() =>{
 
         const res = await axios.get("/api/users/profile")
@@ -13,13 +16,14 @@ function Profile() {
         id = res.data.data._id
         let arr = res.data.data.tasks
         console.log(arr)
-        setList(arr)
+        await setList(arr)
         console.log(list);
     }
-    const [list, setList] = useState([""]);
-    const [task, setTask] = useState("");
     
-    useEffect(() => { getData() })
+    
+    useEffect(() => { getData() 
+
+    }, [])
 
 
     
@@ -29,9 +33,9 @@ function Profile() {
 
     const submitHandler = async() =>{
 
-      console.log(list + "2");
+      console.log(list);
         setList([...list, task]);
-        console.log(list + "3");
+        console.log(list);
 
         const response = await axios.post("/api/users/add", {task})
             
