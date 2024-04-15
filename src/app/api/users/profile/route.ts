@@ -10,7 +10,7 @@ import { cookies } from 'next/headers'
 connect()
 
 export async function GET(request : NextRequest){
-    const userId = '6618205486157b02f55a53ab'
+    const userId = '661d4bfaa0dfc3ebf972bb4b'
      
     const user = await User.findOne({_id: userId}).select("-password")
 
