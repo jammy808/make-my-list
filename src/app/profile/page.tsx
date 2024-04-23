@@ -11,7 +11,7 @@ function Profile() {
 
     const getData = async() =>{
 
-        const res = await axios.get("/api/users/profile")
+        const res = await axios.post("/api/users/profile",{id : 123})
       
         id = res.data.data._id
         let arr = res.data.data.tasks
