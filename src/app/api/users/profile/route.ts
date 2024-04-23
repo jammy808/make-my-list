@@ -10,9 +10,10 @@ import { cookies } from 'next/headers'
 connect()
 
 export async function POST(request : NextRequest){
-    const userId = '661d4bfaa0dfc3ebf972bb4b'
+    // const userId = '661d4bfaa0dfc3ebf972bb4b'
+    const userId = await getDataFromToken(request)
      
-    const user = await User.findOne({_id: userId}).select("-password")
+    const user = await User.findOne({_id: userId.id}).select("-password")
     console.log("profile route hit")
 
     return NextResponse.json({
