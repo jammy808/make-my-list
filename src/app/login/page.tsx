@@ -45,7 +45,7 @@ function LoginPage() {
 
     return(
         <>
-        <h1>{loading}</h1>
+        {/* <h1>{loading}</h1>
 
         <br />
         <input
@@ -74,7 +74,55 @@ function LoginPage() {
 
         <br />
         
-        <Link href="/signup">Sign Up</Link> 
+        <Link href="/signup">Sign Up</Link>  */}
+
+
+        <div className="w-screen h-screen bg-yellow-300 flex items-center justify-center">
+
+        <div className="w-9/12 lg:w-[30vw] bg-gradient-to-r from-yellow-200 rounded-3xl px-4 lg:px-20 py-8 text-3xl lg:text-base">
+
+        <h1 className="font-bold text-4xl lg:text-3xl italic text-black text-center">Make My List</h1>
+        <h2 className="font-semibold text-2xl lg:text-xl text-yellow-700 text-center mt-4">{loading}</h2>
+        
+        <label className="block mt-10 lg:mt-3 font-bold p-1 text-xl lg:text-xl">Email :</label>
+        <input className="block w-full border-yellow-500 border-2 rounded-lg bg-yellow-200"
+         type="email"
+         id="Email"
+        value={user.email}
+        onChange={(e) => setuser({...user,
+            email: e.target.value
+        })}
+        />
+        
+
+        <label className="block mt-10 lg:mt-3 font-bold p-1 text-xl lg:text-xl">Password :</label>
+        <input className="block w-full border-yellow-500 border-2 rounded-lg bg-yellow-200 lg:p-1" 
+        type="password"
+        id="password"
+        value={user.password}
+        onChange={(e) => setuser({...user,
+            password: e.target.value
+        })}
+        />
+
+
+        <div className="w-[100%] flex justify-center">
+        <button 
+            className="bg-yellow-400  px-2 rounded-2xl border-0 border-b-4 border-r-1 border-solid border-yellow-600 
+            font-bold italic text-yellow-700 shadow-xl m-6 justify-self-end w-32 transform transition-all hover:translate-y-1  " 
+            onClick={onSignup}> {buttonDisabled? "fill the form": "Log In" } </button>
+        </div>
+
+
+        <Link href="/signup">
+        <h2 className="font-semibold text-2xl lg:text-xl text-yellow-700 text-center mt-1">Sign Up</h2>
+        </Link>
+
+        
+        </div>
+
+        </div>
+
         </>
         
     )
