@@ -109,7 +109,7 @@ function LoginPage() {
         <div className="w-[100%] flex justify-center">
         <button 
             className="bg-yellow-400  px-2 rounded-2xl border-0 border-b-4 border-r-1 border-solid border-yellow-600 
-            font-bold italic text-yellow-700 shadow-xl m-6 justify-self-end w-32 transform transition-all hover:translate-y-1  " 
+            font-bold italic text-yellow-700 shadow-xl m-6 justify-self-end w-32 transform transition-all hover:translate-y-1 text-lg " 
             onClick={onSignup}> {buttonDisabled? "fill the form": "Log In" } </button>
         </div>
 
