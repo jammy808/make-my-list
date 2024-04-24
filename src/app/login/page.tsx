@@ -15,11 +15,11 @@ function LoginPage() {
     })
 
     const [buttonDisabled , setbuttonDisabled] = useState(false)
-    const [loading , setloading] = useState(false)
+    const [loading , setloading] = useState("Login")
 
     const onSignup = async () => {
         try {
-            setloading(true)
+            setloading("Processing...")
             
             const response = await axios.post("/api/users/login", user)
             console.log("login done", response.data);
@@ -28,6 +28,9 @@ function LoginPage() {
             
         } catch (error: any) {
             console.log("login failed");
+            setloading(error.response.data.error)
+            console.log(error.response.data.error)
+
             toast.error(error.message)
         }
     }
@@ -42,7 +45,7 @@ function LoginPage() {
 
     return(
         <>
-        <h1>{loading ? "Processing" : "Login"}</h1>
+        <h1>{loading}</h1>
 
         <br />
         <input
@@ -66,12 +69,12 @@ function LoginPage() {
 
         <br />
         <button onClick={onSignup}>
-            {buttonDisabled? "fill the form": "Sign Up" }
+            {buttonDisabled? "fill the form": "Log In" }
         </button>
 
         <br />
         
-        <Link href="/login">Login</Link> 
+        <Link href="/signup">Sign Up</Link> 
         </>
         
     )

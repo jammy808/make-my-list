@@ -16,11 +16,11 @@ function SignupPage() {
     })
 
     const [buttonDisabled , setbuttonDisabled] = useState(false)
-    const [loading , setloading] = useState(false)
+    const [loading , setloading] = useState("Signup")
 
     const onSignup = async () => {
         try {
-            setloading(true)
+            setloading("Processing...")
             
             const response = await axios.post("/api/users/signup", user)
             console.log("signup done", response.data);
@@ -29,6 +29,7 @@ function SignupPage() {
             
         } catch (error: any) {
             console.log("Signup failed");
+            setloading("Signup failed")
             toast.error(error.message)
         }
     }
@@ -43,7 +44,7 @@ function SignupPage() {
 
     return(
         <>
-        <h1>{loading ? "Processing" : "Signup"}</h1>
+        <h1>{loading}</h1>
 
         <br />
         <input
